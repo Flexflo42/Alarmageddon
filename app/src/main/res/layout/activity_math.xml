@@ -4,15 +4,23 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TimePicker
-        android:id="@+id/timePicker"
+    <TextView
+        android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="spinner" />
+        android:text="Matheaufgabe"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/answerInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Antwort eingeben"
+        android:inputType="number" />
 
     <Button
-        android:id="@+id/setAlarmButton"
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wecker einstellen" />
+        android:text="Antwort prüfen" />
 </LinearLayout>

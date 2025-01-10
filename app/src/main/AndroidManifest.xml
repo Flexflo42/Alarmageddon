@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Berechtigung für Benachrichtigungen -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,16 +18,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alarmageddon"
         tools:targetApi="31">
+
+        <!-- Hauptaktivität -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Alarmageddon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MathActivity -->
+        <activity
+            android:name=".MathActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Alarmageddon" />
+
+        <!-- AlarmReceiver -->
+        <receiver
+            android:name=".AlarmReceiver"
+            android:exported="true" />
     </application>
 
 </manifest>

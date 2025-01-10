@@ -5,12 +5,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
+        Log.d("AlarmReceiver", "Alarm ausgelöst")
         // Alarm wurde ausgelöst
         val notification = NotificationCompat.Builder(context!!, "alarm_channel")
             .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
@@ -22,7 +24,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val notificationManager = NotificationManagerCompat.from(context)
         if (ActivityCompat.checkSelfPermission(
-                this,
+                context,  // Use the correct Context here
                 Manifest.permission.POST_NOTIFICATIONS
             ) != PackageManager.PERMISSION_GRANTED
         ) {
